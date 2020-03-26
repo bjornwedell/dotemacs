@@ -32,12 +32,12 @@
       (concat
 
        ;; nyan-cat
-       (when nyan-mode
-         (concat
-          (propertize " " 'display `(space :align-to (- right ,nyan-offset)))
-          (propertize "|" 'face 'vertical-border)
-          (nyan-create)
-          (propertize "|" 'face 'vertical-border)))
+       ;; (when nyan-mode
+       ;;   (concat
+       ;;    (propertize " " 'display `(space :align-to (- right ,nyan-offset)))
+       ;;    (propertize "|" 'face 'vertical-border)
+       ;;    (nyan-create)
+       ;;    (propertize "|" 'face 'vertical-border)))
 
        ;; read-only / changed
        (propertize " " 'display `(space :align-to (- right ,status-offset)))
