@@ -18,20 +18,20 @@
 (defun cryon--load-directory (dir)
   "Load all .el files in a directory relative to the configuration folder"
   (mapc (lambda (f) (load-file (concat (file-name-as-directory dir) f)))
-	(directory-files dir nil "\\.el$")))
+        (directory-files dir nil "\\.el$")))
 
 (defun cryon--fast-init (init-function)
   "Apply the init function with less overhead"
   (defvar cryon--file-name-handler-alist file-name-handler-alist)
   (setq gc-cons-threshold 402653184
-	gc-cons-percentage 0.6
-	file-name-handler-alist nil)
+        gc-cons-percentage 0.6
+        file-name-handler-alist nil)
   (add-hook
    'emacs-startup-hook
    (lambda ()
      (setq gc-cons-threshold 16777216
-	   gc-cons-percentage 0.1
-	   file-name-handler-alist cryon--file-name-handler-alist)))
+           gc-cons-percentage 0.1
+           file-name-handler-alist cryon--file-name-handler-alist)))
   (funcall init-function))
 
 (defun cryon--init ()
@@ -42,10 +42,6 @@
   (cryon--load-custom "packages.el")
   (cryon--load-custom "keys.el")
   (cryon--load-custom "customizations.el")
-  (cryon--load-directory (concat config-dir "auto"))
-
-  (server-start)
-  (cd "~")
-  (eshell))
+  (cryon--load-directory (concat config-dir "auto")))
 
 (cryon--fast-init 'cryon--init)

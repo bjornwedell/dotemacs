@@ -155,9 +155,9 @@ or the current buffer directory."
   (("M-ö" . neotree-project-dir-toggle)))
 
 ;; -- Yasnippet --
-(use-package yasnippet
-  :ensure t
-  :init (add-hook 'prog-mode-hook 'yas-minor-mode)
-  :config (use-package yasnippet-snippets
-	    :ensure t)
-  (yas-reload-all))
+;; (use-package yasnippet
+;;   :ensure t
+;;   :init (add-hook 'prog-mode-hook 'yas-minor-mode)
+;;   :config (use-package yasnippet-snippets
+;; 	    :ensure t)
+;;   (yas-reload-all))
